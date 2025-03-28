@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Actualizar lista de paquetes
+      apt:
+        update_cache: yes
+
+    - name: Instalar apache
+      apt:
+        name: apache2
+        state: present
+        
+    - name: Habilitar y asegurar que Apache esté corriendo
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Copiar archivo index.html al servidor web
+      copy:
+        src: /vagrant/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
