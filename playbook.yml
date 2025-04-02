@@ -19,7 +19,7 @@
 
     - name: Copiar archivo index.html al servidor web
       copy:
-        src: /vagrant/index.html
+        src: ./index.html
         dest: /var/www/html/index.html
         owner: www-data
         group: www-data

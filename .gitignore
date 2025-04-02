@@ -1,1 +1,6 @@
 .vagrant/
+.terraform/
+fix-cedilla
+.terraform*
+*.box
+terraform*
